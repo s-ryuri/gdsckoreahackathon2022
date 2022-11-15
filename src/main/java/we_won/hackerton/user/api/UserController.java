@@ -18,7 +18,6 @@ import we_won.hackerton.user.domain.UserWordScrap;
 import we_won.hackerton.user.infra.UserWordScrapDAO;
 import we_won.hackerton.user.domain.User_;
 import we_won.hackerton.word.infra.WordRepository;
-import we_won.hackerton.common.response.SuccessResponse;
 import we_won.hackerton.literature.domain.Literature;
 import we_won.hackerton.sentence.domain.Sentence;
 import we_won.hackerton.word.domain.Word;
