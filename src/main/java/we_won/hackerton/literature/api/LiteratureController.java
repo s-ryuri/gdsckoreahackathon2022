@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import we_won.hackerton.common.response.ApiUtils;
 import we_won.hackerton.common.response.ApiUtils.ApiResult;
 import we_won.hackerton.literature.api.dto.LiteratureResponseV1;
-import we_won.hackerton.literature.application.LiteratureService;
+import we_won.hackerton.literature.application.LiteratureQueryService;
 import we_won.hackerton.literature.application.dto.LiteratureResponse;
 import we_won.hackerton.literature.domain.Literature;
 import we_won.hackerton.user.api.DeleteDTO;
@@ -31,11 +30,11 @@ import static we_won.hackerton.common.response.ApiUtils.success;
 @RequestMapping("/api/v1/literatures")
 public class LiteratureController {
 
-    private final LiteratureService literatureService;
+    private final LiteratureQueryService literatureQueryService;
 
     @GetMapping("/")
     public ApiResult<?> loadAll() {
-        final List<LiteratureResponse> literatureResponses = literatureService.loadAll();
+        final List<LiteratureResponse> literatureResponses = literatureQueryService.loadAll();
 
         final List<LiteratureResponseV1> result = literatureResponses.stream()
                                                                      .map(LiteratureResponseV1::new)
@@ -45,7 +44,7 @@ public class LiteratureController {
 
     @GetMapping("/random")
     public ApiResult<?> loadByRandom() {
-        final LiteratureResponse literatureResponse = literatureService.loadByRandom();
+        final LiteratureResponse literatureResponse = literatureQueryService.loadByRandom();
 
         return success(new LiteratureResponseV1(literatureResponse));
     }
