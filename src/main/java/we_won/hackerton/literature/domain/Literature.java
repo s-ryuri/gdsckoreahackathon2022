@@ -1,12 +1,15 @@
 package we_won.hackerton.literature.domain;
 
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import we_won.hackerton.common.entity.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table
@@ -14,6 +17,11 @@ import javax.persistence.Table;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Literature extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "literature_id")
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String title;
@@ -28,14 +36,31 @@ public class Literature extends BaseEntity {
     private String content; //내용
 
     @Column(nullable = false)
-    private long category; //시 == 1, 소설 == 2, 수필 == 3
+    private Category category; //시 == 1, 소설 == 2, 수필 == 3
 
-    @Builder
-    public Literature(String title, String writer, String site_url, String content, long category) {
+    public Literature(final Long id,
+                      final String title,
+                      final String writer,
+                      final String site_url,
+                      final String content,
+                      final Category category) {
+        this.id = id;
         this.title = title;
         this.writer = writer;
         this.site_url = site_url;
         this.content = content;
         this.category = category;
+    }
+
+    public enum Category {
+        POETRY("poetry"),
+        ESSAY("ESSAY"),
+        LITERARY("LITERARY");
+
+        private String name;
+
+        Category(final String name) {
+            this.name = name;
+        }
     }
 }
