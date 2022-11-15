@@ -2,7 +2,6 @@ package we_won.hackerton.user.domain;
 
 import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import we_won.hackerton.common.BaseEntity;
 import we_won.hackerton.common.constant.UserRole;
 
 import javax.persistence.*;
