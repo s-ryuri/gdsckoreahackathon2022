@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import we_won.hackerton.Interface.UserRepository;
-import we_won.hackerton.entity.User_;
+import we_won.hackerton.user.infra.UserRepository;
+import we_won.hackerton.user.domain.User_;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;

@@ -7,7 +7,7 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import we_won.hackerton.dto.UserFormDTO;
+import we_won.hackerton.user.api.UserFormDTO;
 import we_won.hackerton.security.token.PreAuthorizationToken;
 
 import javax.servlet.FilterChain;
