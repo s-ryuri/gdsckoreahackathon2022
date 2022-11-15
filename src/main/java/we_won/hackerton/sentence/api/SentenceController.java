@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import we_won.hackerton.literature.infra.LiteratureRepository;
+import we_won.hackerton.literature.infra.LiteratureJpaRepository;
 import we_won.hackerton.sentence.domain.Sentence;
 import we_won.hackerton.sentence.infra.SentenceRepository;
 import we_won.hackerton.user.infra.UserRepository;
@@ -23,14 +23,14 @@ import java.util.Optional;
 public class SentenceController {
 
 
-    private final LiteratureRepository literatureRepository;
+    private final LiteratureJpaRepository literatureJpaRepository;
     private final UserSentenceScrapDAO userSentenceScrapDAO;
     private final UserRepository userRepository;
     private final SentenceRepository sentenceRepository;
 
     @GetMapping("/{title}")
     public ResponseEntity<?> getLiteratureInfo(@PathVariable("title") String title){
-        Literature literature = literatureRepository.findByTitle(title);
+        Literature literature = literatureJpaRepository.findByTitle(title);
         return new ResponseEntity<>(literature,HttpStatus.CREATED);
     }
     @DeleteMapping("")

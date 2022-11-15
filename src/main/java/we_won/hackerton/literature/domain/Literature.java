@@ -32,29 +32,28 @@ public class Literature extends BaseEntity {
     @Column(nullable = false)
     private String writer;
 
-    @Column(nullable = true)
-    private String site_url;
+    @Column(name = "site_url")
+    private String siteUrl;
 
     @Column(nullable = false, columnDefinition = "LONGTEXT")
-    private String content; //내용
+    private String content;
 
     @Column(nullable = false)
     @Enumerated(STRING)
-    private Category category; //시 == 1, 소설 == 2, 수필 == 3
+    private Category category;
 
     public Literature(final Long id,
                       final String title,
                       final String writer,
-                      final String site_url,
+                      final String siteUrl,
                       final String content,
                       final Category category) {
         this.id = id;
         this.title = title;
         this.writer = writer;
-        this.site_url = site_url;
+        this.siteUrl = siteUrl;
         this.content = content;
         this.category = category;
     }
-
 
 }
