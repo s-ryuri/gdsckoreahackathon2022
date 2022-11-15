@@ -10,5 +10,9 @@ public interface LiteratureRepository {
 
     Optional<Literature> findById();
 
-    Literature findByTitle(String title);
+    Optional<Literature> findByTitle(String title);
+
+    Optional<Literature> findByRandom();
+
+
 }

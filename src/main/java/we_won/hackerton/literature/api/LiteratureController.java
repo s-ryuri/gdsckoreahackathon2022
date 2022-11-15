@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static we_won.hackerton.common.response.ApiUtils.success;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/literatures")
@@ -38,18 +40,14 @@ public class LiteratureController {
         final List<LiteratureResponseV1> result = literatureResponses.stream()
                                                                      .map(LiteratureResponseV1::new)
                                                                      .collect(Collectors.toList());
-        return ApiUtils.success(result);
+        return success(result);
     }
 
     @GetMapping("/random")
-    public ResponseEntity<?> getAllLiter() {
-        List<Literature> literature = literatureJpaRepository.findAll();
-        System.out.println(literature);
-        try {
-            return new ResponseEntity<>(literature, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>("에러입니다.", HttpStatus.BAD_REQUEST);
-        }
+    public ApiResult<?> loadByRandom() {
+        final LiteratureResponse literatureResponse = literatureService.loadByRandom();
+
+        return success(new LiteratureResponseV1(literatureResponse));
     }
 
     @GetMapping("/{category}")
