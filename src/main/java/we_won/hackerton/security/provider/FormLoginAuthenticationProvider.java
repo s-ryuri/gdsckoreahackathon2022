@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import we_won.hackerton.security.token.PostAuthorizationToken;
 import we_won.hackerton.security.token.PreAuthorizationToken;
-import we_won.hackerton.service.UserServiceImpl;
+import we_won.hackerton.user.application.UserServiceImpl;
 
 import java.util.NoSuchElementException;
 

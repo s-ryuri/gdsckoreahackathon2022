@@ -1,7 +1,7 @@
 package we_won.hackerton.security.token;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import we_won.hackerton.dto.UserFormDTO;
+import we_won.hackerton.user.api.UserFormDTO;
 
 public class PreAuthorizationToken extends UsernamePasswordAuthenticationToken {
 

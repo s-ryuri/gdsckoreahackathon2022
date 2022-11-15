@@ -7,7 +7,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import we_won.hackerton.dto.UserDTO;
+import we_won.hackerton.user.api.UserDTO;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;

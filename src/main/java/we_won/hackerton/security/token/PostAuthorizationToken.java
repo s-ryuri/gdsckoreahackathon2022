@@ -4,7 +4,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import we_won.hackerton.dto.UserDTO;
+import we_won.hackerton.user.api.UserDTO;
 
 import java.util.Collection;
 import java.util.HashSet;
