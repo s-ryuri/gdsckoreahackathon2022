@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import we_won.hackerton.common.exception.NotFoundException;
 import we_won.hackerton.literature.application.dto.LiteratureResponse;
+import we_won.hackerton.literature.domain.Category;
 import we_won.hackerton.literature.domain.Literature;
 import we_won.hackerton.literature.domain.LiteratureRepository;
 
@@ -30,5 +31,12 @@ public class LiteratureQueryService {
                                                           .orElseThrow(() -> new NotFoundException("작품이 존재하지 않습니다."));
 
         return new LiteratureResponse(literature);
+    }
+
+    public List<LiteratureResponse> loadByCategory(String category) {
+        return literatureRepository.findAllByCategory(Category.get(category))
+                                   .stream()
+                                   .map(LiteratureResponse::new)
+                                   .collect(Collectors.toList());
     }
 }
