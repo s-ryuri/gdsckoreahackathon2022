@@ -7,10 +7,13 @@ import we_won.hackerton.common.entity.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import static javax.persistence.EnumType.STRING;
 
 @Table
 @Entity
@@ -36,6 +39,7 @@ public class Literature extends BaseEntity {
     private String content; //내용
 
     @Column(nullable = false)
+    @Enumerated(STRING)
     private Category category; //시 == 1, 소설 == 2, 수필 == 3
 
     public Literature(final Long id,
